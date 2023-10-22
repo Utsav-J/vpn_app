@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vpn_app/preferences/app_preferences.dart';
 // import 'package:vpn_app/screens/bottom_navbar.dart';
 import 'package:vpn_app/utils/extensions.dart';
+import 'package:vpn_app/widgets/custom_container.dart';
+import 'package:vpn_app/widgets/vpn_toggle_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -56,6 +58,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text(
           "utsaVPN",
@@ -79,6 +82,76 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: locationSelectorBar(context),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomContainer(
+                titleText: 'Connected to',
+                subtitleText: 'Nepal',
+                widgetFile: CircleAvatar(
+                  radius: 17.0.wp,
+                  backgroundColor: Palette.green30,
+                  child: Icon(
+                    CupertinoIcons.flag_circle_fill,
+                    size: 15.0.wp,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              CustomContainer(
+                titleText: '20ms',
+                subtitleText: 'Ping',
+                widgetFile: CircleAvatar(
+                  radius: 17.0.wp,
+                  backgroundColor: Palette.green30,
+                  child: Icon(
+                    CupertinoIcons.wifi,
+                    size: 15.0.wp,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
+          const VPNToggleButton(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomContainer(
+                titleText: '0 Kbps',
+                subtitleText: 'DOWNLOAD',
+                widgetFile: CircleAvatar(
+                  radius: 17.0.wp,
+                  backgroundColor: Palette.green30,
+                  child: Icon(
+                    CupertinoIcons.arrow_down_circle_fill,
+                    size: 15.0.wp,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              CustomContainer(
+                titleText: '0 Kbps',
+                subtitleText: 'UPLOAD',
+                widgetFile: CircleAvatar(
+                  radius: 17.0.wp,
+                  backgroundColor: Palette.green30,
+                  child: Icon(
+                    CupertinoIcons.arrow_up_circle_fill,
+                    size: 15.0.wp,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

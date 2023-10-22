@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'utsaVPN',
       theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.light(
+            onSurface: Palette.green10, background: Palette.materialWhite),
         appBarTheme: AppBarTheme(
           iconTheme: IconThemeData(color: Palette.materialBlack),
           titleTextStyle: GoogleFonts.lato(color: Palette.materialBlack),
@@ -28,10 +32,18 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           elevation: 3,
         ),
-        brightness: Brightness.light,
-        colorScheme: ColorScheme.light(
-            onSurface: Palette.green10, background: Palette.materialWhite),
-        useMaterial3: true,
+        textTheme: TextTheme(
+          titleMedium: GoogleFonts.lato(
+            fontSize: 12.0.sp,
+            color: Palette.green60,
+            fontWeight: FontWeight.w600,
+          ),
+          titleSmall: GoogleFonts.lato(
+            fontSize: 11.0.sp,
+            color: Palette.green60,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       themeMode: AppPreferences.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       darkTheme: ThemeData(
@@ -45,6 +57,18 @@ class MyApp extends StatelessWidget {
           color: Palette.green60,
           centerTitle: true,
           elevation: 3,
+        ),
+        textTheme: TextTheme(
+          titleMedium: GoogleFonts.lato(
+            fontSize: 12.0.sp,
+            color: Palette.green10,
+            fontWeight: FontWeight.w600,
+          ),
+          titleSmall: GoogleFonts.lato(
+            fontSize: 11.0.sp,
+            color: Palette.green10,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
